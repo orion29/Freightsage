@@ -1,0 +1,55 @@
+Column Name,Description,Importance (Input Feature),Typical Availability in Real Data
+Shipment ID,Unique identifier for each shipment.,not useful,High
+Order Date,Date the customer order was placed.,useful,High
+Shipment Date,Date the shipment physically left the origin.,useful,High
+Actual Delivery Date,Date the shipment was delivered to the destination.,useful,High
+Origin City,City of origin (Gurugram).,useful,High
+Origin Country,Country of origin (India).,useful,High
+Manufacturing Site,Internal origin point within the company (Gurugram Mfg Hub).,useful,High / Medium
+Destination Country,Country of destination.,useful,High
+Destination City,Specific city of destination.,useful,High
+Chosen Route Name,Name of the specific physical route taken between OD cities.,useful,Medium / Derived (often inferred from GPS traces)
+Distance (km),Distance of the chosen route in kilometers.,useful,Medium (often estimated or requires geo-coding)
+Customer ID,Identifier for the customer receiving the shipment.,useful,High
+Service Level,"Requested service level (Standard, Express, Critical).",useful,High
+Product ID,Identifier for the product being shipped.,useful,High
+Product Category,"Category of the product (e.g., Electronics, Pharma).",useful,High
+Shipment Content Type,"General type of goods (Fragile, Heavy, Temp Controlled, etc.).",useful,High (often linked to Product Category)
+Packaging Type,"Type of packaging used (Box, Pallet, Crate).",useful,Medium
+Packaging Efficiency,Metric indicating how well product volume fills packaging volume.,useful,Derived
+Line Item Quantity,Number of units for the product in the shipment.,useful,High
+Unit Price (USD),Price per unit of the product.,useful,High
+Pack Price (USD),Price per pack of the product.,useful,Medium
+Line Item Value (USD),Total value of the product line item (Quantity * Unit Price).,useful,Derived
+Weight (kg),Total actual weight of the shipment.,useful,High
+Volume (m³),Total actual volume of the shipment.,useful,High
+Billable Weight (kg),The weight used for freight cost calculation (max of actual/volumetric).,useful,High (calculated by carrier/company)
+Shipment Mode,"Mode of transport used (Road, Air Cargo, Sea, etc.).",useful,High
+Transporter Name,The logistics provider used for the shipment (Vendor).,useful,High
+Carrier Product Fit Score,Domain-based score indicating how well the carrier fits the product category.,useful,Simulated (based on analysis or domain knowledge)
+Expected Delivery Time (Days),The initially promised transit time in days.,useful,High
+Delivery Time (Days),The actual transit time in days (Actual Delivery Date - Shipment Date).,not useful,Derived
+Delay (Days),The difference between actual and expected delivery time.,not useful,Derived
+Avg Speed (km/h),Simulated average speed maintained during transit.,useful,Simulated / Derived (requires GPS/telemetry processing)
+Halt Duration (hours),Simulated total time spent in unexpected or scheduled halts.,useful,Simulated / Derived (requires GPS/telemetry processing)
+Route Deviation Factor,Simulated factor representing how much longer the actual path was than the chosen route distance.,useful,Simulated / Derived (requires GPS/telemetry processing)
+Weather Impact,Simulated impact of weather conditions during transit.,useful,Simulated / Derived (requires integration with weather data)
+Customs/Border Delay (hours),Simulated time spent waiting at customs or borders.,useful,Simulated / Derived (requires tracking event data)
+Route Congestion Factor,Simulated factor representing congestion level on the route for the shipment month.,useful,Simulated / Derived (requires historical analysis or external data)
+Seasonal Cost Factor,Multiplier applied to cost based on shipment month seasonality.,useful,Simulated / Derived (requires historical trend analysis)
+Seasonal Delay Factor,Multiplier applied to delay based on shipment month seasonality.,useful,Simulated / Derived (requires historical trend analysis)
+Proposed Freight Cost (USD),The initial quoted or estimated cost for the shipment.,useful,High
+Actual Freight Cost (USD),The final recorded cost for the shipment.,not useful,High
+Cost Per Billable Kg (USD),Actual freight cost per billable kilogram.,useful,Derived
+Price Variance (USD),Difference between actual and proposed freight cost.,not useful,Derived
+Price Variance (%),Percentage difference between actual and proposed freight cost.,not useful,Derived
+Carbon Emissions (kg CO2),Estimated carbon footprint of the shipment.,not useful,Derived (requires emission factors and other data)
+Status,"Simple status based on delay (Delivered, Delayed, Early).",not useful,Derived
+On-Time Delivery,Binary flag indicating if the shipment was on time.,not useful,Derived
+Cost Outlier,Flag indicating if the actual cost was a deliberate outlier.,not useful,Derived (result of anomaly detection analysis)
+Shipment Month,Month of the shipment date.,useful,Derived
+Shipment Day of Week,"Day of the week of the shipment date (0=Mon, 6=Sun).",useful,Derived
+Transporter Avg Delay,Historical average delay for this transporter (calculated from this data).,not useful,Derived (requires historical data aggregation)
+Transporter On-Time Pct,Historical on-time percentage for this transporter (calculated from this data).,not useful,Derived (requires historical data aggregation)
+Transporter Avg Price Variance Pct,Historical average price variance for this transporter (calculated from this data).,not useful,Derived (requires historical data aggregation)
+Transporter Reliability Score,Composite score for transporter reliability (calculated from this data).,not useful,Derived (requires historical data aggregation & scoring logic)
