@@ -7,7 +7,6 @@ It provides actionable insights, vendor suggestions, anomaly detection, and dela
 - Cost anomaly detection
 - Vendor recommendation engine
 - Delay prediction based on routes and vendors
-- Interactive dashboard (Streamlit)
 
 ## 🔧 Project Structure
 - `freight_core/`: Core ML and data scripts
@@ -21,8 +20,4 @@ It provides actionable insights, vendor suggestions, anomaly detection, and dela
 ```bash
 git clone https://github.com/your-username/FreightSage.git
 cd FreightSage
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-streamlit run dashboards/streamlit_app.py# Freightsage
 
